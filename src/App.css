@@ -1,0 +1,7 @@
+img:hover {
+  transform: scale(1.2);
+}
+img:active {
+  background-image: url(./img/workspace-background.png);
+  transform: scale(1.2);
+}
