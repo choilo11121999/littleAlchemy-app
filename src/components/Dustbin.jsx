@@ -1,26 +1,27 @@
-import React, { useState } from "react";
-import { useDrop } from "react-dnd";
-import NewBox from "./NewBox";
-import { ItemTypes } from "./../constants/ItemTypes";
+/* eslint-disable react/prop-types */
+import React, { useState } from 'react';
+import { useDrop } from 'react-dnd';
+import NewBox from './NewBox';
+import { ItemTypes } from './../constants/ItemTypes';
 
 // Import Image
-import Dust from "./../img/dust.png";
-import Energy from "./../img/energy.png";
-import Lava from "./../img/lava.png";
-import Stone from "./../img/stone.png";
-import Wind from "./../img/wind.png";
-import Earthquake from "./../img/earthquake.png";
-import Volcano from "./../img/volcano.png";
-import Gunpowder from "./../img/gunpowder.png";
+import Dust from './../img/dust.png';
+import Energy from './../img/energy.png';
+import Lava from './../img/lava.png';
+import Stone from './../img/stone.png';
+import Wind from './../img/wind.png';
+import Earthquake from './../img/earthquake.png';
+import Volcano from './../img/volcano.png';
+import Gunpowder from './../img/gunpowder.png';
 
 // CSS Block chua cac item duoc tha vao
 const style = {
-  height: "100%",
-  width: "100%",
-  color: "white",
-  textAlign: "center",
-  fontSize: "1rem",
-  position: "relative",
+  height: '100%',
+  width: '100%',
+  color: 'white',
+  textAlign: 'center',
+  fontSize: '1rem',
+  position: 'relative',
 };
 
 // Array chua cac item duoc tha vao
@@ -30,42 +31,42 @@ const listItems = [];
 const listNewItems = {
   dust: {
     id: 3,
-    name: "dust",
+    name: 'dust',
     url: Dust,
   },
   energy: {
     id: 4,
-    name: "energy",
+    name: 'energy',
     url: Energy,
   },
   lava: {
     id: 5,
-    name: "lava",
+    name: 'lava',
     url: Lava,
   },
   stone: {
     id: 6,
-    name: "stone",
+    name: 'stone',
     url: Stone,
   },
   wind: {
     id: 7,
-    name: "wind",
+    name: 'wind',
     url: Wind,
   },
   earthquake: {
     id: 8,
-    name: "earthquake",
+    name: 'earthquake',
     url: Earthquake,
   },
   volcano: {
     id: 9,
-    name: "volcano",
+    name: 'volcano',
     url: Volcano,
   },
   gunpowder: {
     id: 10,
-    name: "gunpowder",
+    name: 'gunpowder',
     url: Gunpowder,
   },
 };
@@ -74,11 +75,11 @@ const Dustbin = ({ addNewItem }) => {
   const [sttState, setSttState] = useState(0);
 
   // Xua ly drop
-  var [{ canDrop, isOver }, drop] = useDrop({
+  var [, drop] = useDrop({
     accept: ItemTypes.BOX,
     drop(item, monitor) {
       // Lay chieu rong cua khung chua cac item
-      const parentWidth = document.getElementById("div").offsetWidth;
+      const parentWidth = document.getElementById('div').offsetWidth;
       // Lay left, top, cua item sau khi tha
       const leftItem = `${Math.round(
         (monitor.getSourceClientOffset().x / parentWidth) * 100
@@ -105,11 +106,7 @@ const Dustbin = ({ addNewItem }) => {
       }
       // debugger;
       return undefined;
-    },
-    collect: (monitor) => ({
-      isOver: monitor.isOver(),
-      canDrop: monitor.canDrop(),
-    }),
+    }
   });
 
   // Ham them item moi vao khung
@@ -185,9 +182,9 @@ const Dustbin = ({ addNewItem }) => {
     leftItem,
     topItem
   ) => {
-    if (namePicked === "air") {
+    if (namePicked === 'air') {
       switch (nameItem) {
-        case "earth":
+        case 'earth':
           handleSwitchCase(
             listNewItems.dust,
             leftItem,
@@ -196,7 +193,7 @@ const Dustbin = ({ addNewItem }) => {
             sttItem
           );
           break;
-        case "fire":
+        case 'fire':
           handleSwitchCase(
             listNewItems.energy,
             leftItem,
@@ -205,7 +202,7 @@ const Dustbin = ({ addNewItem }) => {
             sttItem
           );
           break;
-        case "lava":
+        case 'lava':
           handleSwitchCase(
             listNewItems.stone,
             leftItem,
@@ -214,7 +211,7 @@ const Dustbin = ({ addNewItem }) => {
             sttItem
           );
           break;
-        case "energy":
+        case 'energy':
           handleSwitchCase(
             listNewItems.wind,
             leftItem,
@@ -226,9 +223,9 @@ const Dustbin = ({ addNewItem }) => {
         default:
           break;
       }
-    } else if (namePicked === "earth") {
+    } else if (namePicked === 'earth') {
       switch (nameItem) {
-        case "air":
+        case 'air':
           handleSwitchCase(
             listNewItems.dust,
             leftItem,
@@ -237,7 +234,7 @@ const Dustbin = ({ addNewItem }) => {
             sttItem
           );
           break;
-        case "fire":
+        case 'fire':
           handleSwitchCase(
             listNewItems.lava,
             leftItem,
@@ -246,7 +243,7 @@ const Dustbin = ({ addNewItem }) => {
             sttItem
           );
           break;
-        case "energy":
+        case 'energy':
           handleSwitchCase(
             listNewItems.earthquake,
             leftItem,
@@ -255,7 +252,7 @@ const Dustbin = ({ addNewItem }) => {
             sttItem
           );
           break;
-        case "lava":
+        case 'lava':
           handleSwitchCase(
             listNewItems.volcano,
             leftItem,
@@ -267,9 +264,9 @@ const Dustbin = ({ addNewItem }) => {
         default:
           break;
       }
-    } else if (namePicked === "fire") {
+    } else if (namePicked === 'fire') {
       switch (nameItem) {
-        case "air":
+        case 'air':
           handleSwitchCase(
             listNewItems.energy,
             leftItem,
@@ -278,7 +275,7 @@ const Dustbin = ({ addNewItem }) => {
             sttItem
           );
           break;
-        case "earth":
+        case 'earth':
           handleSwitchCase(
             listNewItems.lava,
             leftItem,
@@ -287,7 +284,7 @@ const Dustbin = ({ addNewItem }) => {
             sttItem
           );
           break;
-        case "dust":
+        case 'dust':
           handleSwitchCase(
             listNewItems.gunpowder,
             leftItem,
@@ -299,9 +296,9 @@ const Dustbin = ({ addNewItem }) => {
         default:
           break;
       }
-    } else if (namePicked === "dust") {
+    } else if (namePicked === 'dust') {
       switch (nameItem) {
-        case "fire":
+        case 'fire':
           handleSwitchCase(
             listNewItems.gunpowder,
             leftItem,
@@ -313,9 +310,9 @@ const Dustbin = ({ addNewItem }) => {
         default:
           break;
       }
-    } else if (namePicked === "lava") {
+    } else if (namePicked === 'lava') {
       switch (nameItem) {
-        case "air":
+        case 'air':
           handleSwitchCase(
             listNewItems.stone,
             leftItem,
@@ -324,7 +321,7 @@ const Dustbin = ({ addNewItem }) => {
             sttItem
           );
           break;
-        case "earth":
+        case 'earth':
           handleSwitchCase(
             listNewItems.volcano,
             leftItem,
@@ -336,9 +333,9 @@ const Dustbin = ({ addNewItem }) => {
         default:
           break;
       }
-    } else if (namePicked === "energy") {
+    } else if (namePicked === 'energy') {
       switch (nameItem) {
-        case "air":
+        case 'air':
           handleSwitchCase(
             listNewItems.wind,
             leftItem,
@@ -347,7 +344,7 @@ const Dustbin = ({ addNewItem }) => {
             sttItem
           );
           break;
-        case "earth":
+        case 'earth':
           handleSwitchCase(
             listNewItems.earthquake,
             leftItem,

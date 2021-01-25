@@ -1,14 +1,16 @@
-import { useDrag } from "react-dnd";
-import { ItemTypes } from "./../constants/ItemTypes";
+/* eslint-disable react/prop-types */
+/* eslint-disable react/react-in-jsx-scope */
+import { useDrag } from 'react-dnd';
+import { ItemTypes } from './../constants/ItemTypes';
 
 // CSS item
 const style = {
-  width: "100px",
-  height: "60px",
-  position: "relative",
-  backgroundColor: "none",
-  marginLeft: "20px",
-  marginTop: "10px",
+  width: '100px',
+  height: '60px',
+  position: 'relative',
+  backgroundColor: 'none',
+  marginLeft: '20px',
+  marginTop: '10px',
 };
 
 const InitialBox = ({ id, name, url }) => {
@@ -31,21 +33,21 @@ const InitialBox = ({ id, name, url }) => {
         ref={drag}
         src={url}
         style={{
-          width: "60px",
-          height: "60px",
-          position: "absolute",
-          left: "0px",
-          top: "0",
-          cursor: "pointer",
+          width: '60px',
+          height: '60px',
+          position: 'absolute',
+          left: '0px',
+          top: '0',
+          cursor: 'pointer',
         }}
         alt="img"
       />
       <span
         style={{
-          position: "absolute",
-          top: "40%",
-          left: "60px",
-          pointerEvents: "none",
+          position: 'absolute',
+          top: '40%',
+          left: '60px',
+          pointerEvents: 'none',
         }}
       >
         {name}

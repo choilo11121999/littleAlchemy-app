@@ -1,12 +1,14 @@
-import { useDrag } from "react-dnd";
-import { ItemTypes } from "./../constants/ItemTypes";
+/* eslint-disable react/prop-types */
+/* eslint-disable react/react-in-jsx-scope */
+import { useDrag } from 'react-dnd';
+import { ItemTypes } from './../constants/ItemTypes';
 
 // CSS item trong khung duoc tha vao
 const style = {
-  width: "80px",
-  height: "60px",
-  cursor: "pointer",
-  position: "absolute",
+  width: '80px',
+  height: '60px',
+  cursor: 'pointer',
+  position: 'absolute',
   // backgroundColor: 'red'
 };
 
@@ -40,16 +42,16 @@ const NewBox = ({ stt, id, name, url, left, top, deleteItem }) => {
       <img
         ref={drag}
         src={url}
-        style={{ width: "60px", height: "60px" }}
+        style={{ width: '60px', height: '60px' }}
         alt="img"
       />
       <span
         style={{
-          color: "red",
-          position: "absolute",
-          top: "60px",
-          left: "32%",
-          pointerEvents: "none",
+          color: 'red',
+          position: 'absolute',
+          top: '60px',
+          left: '32%',
+          pointerEvents: 'none',
         }}
       >
         {name}
