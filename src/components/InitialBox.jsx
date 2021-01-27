@@ -9,7 +9,7 @@ const style = {
   height: '60px',
   position: 'relative',
   backgroundColor: 'none',
-  marginLeft: '20px',
+  marginLeft: '40px',
   marginTop: '10px',
 };
 
@@ -17,9 +17,6 @@ const InitialBox = ({ id, name, url }) => {
   // Xu ly Drag
   const [{ isDragging }, drag] = useDrag({
     item: { type: ItemTypes.BOX, id, name, url },
-    // end: (item, monitor) => {
-    //     console.log(item);
-    // },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
@@ -42,16 +39,6 @@ const InitialBox = ({ id, name, url }) => {
         }}
         alt="img"
       />
-      <span
-        style={{
-          position: 'absolute',
-          top: '40%',
-          left: '60px',
-          pointerEvents: 'none',
-        }}
-      >
-        {name}
-      </span>
     </div>
   );
 };

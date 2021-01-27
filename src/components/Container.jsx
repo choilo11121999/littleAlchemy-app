@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import Dustbin from './Dustbin';
 import InitialBox from './InitialBox';
-import Air from './../img/air.png';
-import Fire from './../img/fire.png';
-import Earth from './../img/earth.png';
-import WorkspaceBg from './../img/workspace-background.png';
-import LibraryBg from './../img/library-background.png';
+import { Air, Fire, Earth, WorkspaceBg, LibraryBg } from './Images';
 // import update from 'immutability-helper';
 
 // CSS container
