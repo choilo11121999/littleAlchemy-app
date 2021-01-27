@@ -43,6 +43,8 @@ const listNewItems = [
     url: images.Gunpowder,
   },
 ];
+
+// ham sap nhap 2 item trung nhau
 export default function mergeTwoItem(nameDraging, nameDroped) {
   const newName = nameDraging + nameDroped;
   const lengthNewName = newName.length;
