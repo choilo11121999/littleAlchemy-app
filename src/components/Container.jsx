@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Dustbin from './Dustbin';
 import InitialBox from './InitialBox';
 import { Air, Fire, Earth, WorkspaceBg, LibraryBg } from './Images';
-// import update from 'immutability-helper';
 
 // CSS container
 const style = {

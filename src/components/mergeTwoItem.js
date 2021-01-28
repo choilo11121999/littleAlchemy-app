@@ -1,57 +1,61 @@
 import * as images from './Images';
-import _ from 'lodash';
+import { find, isEqual } from 'lodash';
 // Array chua cac item moi khi merge
 const listNewItems = [
   {
     id: 3,
-    name: 'airearth',
+    components: ['air', 'earth'],
+    name: 'dust',
     url: images.Dust,
   },
   {
     id: 4,
-    name: 'airfire',
+    components: ['air', 'fire'],
+    name: 'energy',
     url: images.Energy,
   },
   {
     id: 5,
-    name: 'earthfire',
+    components: ['earth', 'fire'],
+    name: 'lava',
     url: images.Lava,
   },
   {
     id: 6,
-    name: 'airlava',
+    components: ['air', 'lava'],
+    name: 'stone',
     url: images.Stone,
   },
   {
     id: 7,
-    name: 'airairfire',
+    components: ['air', 'energy'],
+    name: 'wind',
     url: images.Wind,
   },
   {
     id: 8,
-    name: 'earthairfire',
+    components: ['earth', 'energy'],
+    name: 'earthquake',
     url: images.Earthquake,
   },
   {
     id: 9,
-    name: 'earthearthfire',
+    components: ['earth', 'lava'],
+    name: 'volcano',
     url: images.Volcano,
   },
   {
     id: 10,
-    name: 'fireairearth',
+    components: ['fire', 'dust'],
+    name: 'gunpowder',
     url: images.Gunpowder,
   },
 ];
 
 // ham sap nhap 2 item trung nhau
 export default function mergeTwoItem(nameDraging, nameDroped) {
-  const newName = nameDraging + nameDroped;
-  const lengthNewName = newName.length;
-  const index = _.findIndex(listNewItems, function(item) {
-    return _.includes(item.name, nameDraging) && _.includes(item.name, nameDroped) && lengthNewName === item.name.length;
-  });
-  const newItem = listNewItems[index];
+  const newComponents = [nameDraging, nameDroped];
+  const newItem = find(listNewItems, (item) => isEqual(newComponents.sort(), item.components.sort()));
   if (newItem !== undefined) {
     return newItem;
   }
