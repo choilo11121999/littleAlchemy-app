@@ -97,15 +97,13 @@ const Dustbin = ({ addNewItem }) => {
       const intLeftPick = parseInt(leftPicked.slice(0, leftPicked.length));
       const checkLeft = intItemLeft - 10 <= intLeftPick && intLeftPick <= intItemLeft + 10;
       const checkTop = item.top - 10 <= topPicked && topPicked <= item.top + 10;
-      if (item.stt !== sttPicked) {
-        if (checkLeft && checkTop) {
-          const newItem = mergeTwoItem(namePicked, item.name);
-          if (newItem !== null) {   
-            replace(item.stt, newItem.id, newItem.name, newItem.url);
-            // Gui item moi sang cho Container
-            addNewItem(newItem);
-            deleteItem(sttPicked);
-          }
+      if (checkLeft && checkTop) {
+        const newItem = mergeTwoItem(namePicked, item.name);
+        if (newItem) {   
+          replace(item.stt, newItem.id, newItem.name, newItem.url);
+          // Gui item moi sang cho Container
+          addNewItem(newItem);
+          deleteItem(sttPicked);
         }
       }
     });
